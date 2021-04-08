@@ -19,7 +19,7 @@
 - debug: var=ansible_distribution_version
 
 - name: " Service | Check if use use_initd"
-  set_fact: use_initd={{ ansible_service_mgr == 'sysvinit' }}
+  set_fact: use_initd={{ ansible_service_mgr in ['sysvinit', 'upstart'] }}
 
 - import_tasks: install.yml
   when: >
